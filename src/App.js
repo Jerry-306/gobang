@@ -26,13 +26,13 @@ function App() {
         <div 
           className='white' 
           onClick={() => setSelectedColor(1)}
-          style={{ border: `2px solid ${selectedColor % 2 === 1 ? '#181717': '#f5f6f5'}`}} 
+          style={{ border: `2px solid ${selectedColor === 1 ? '#181717': '#f5f6f5'}`}} 
         ></div>
         <div className='reset' onClick={handleReset}>重置</div>
         <div 
           className='black'
           onClick={() => setSelectedColor(2)}
-          style={{ border: `2px solid ${selectedColor % 2 === 1 ? '#181717': '#f5f6f5'}`}}
+          style={{ border: `2px solid ${selectedColor === 1 ? '#181717': '#f5f6f5'}`}}
         ></div>
       </div>
     </div>

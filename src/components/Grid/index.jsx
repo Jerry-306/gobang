@@ -17,9 +17,9 @@ export default function Grid({row, colum}) {
       })
       arr.push(temp);
     })
-    arr[row][colum] = curColor % 2 === 1 ? 1 : 2;
+    arr[row][colum] = curColor;
     setMatrix(arr);
-    setCurColor(curColor + 1);
+    setCurColor(curColor === 1 ? 2 : 1);
   }
 
   return (
