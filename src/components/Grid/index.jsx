@@ -1,5 +1,5 @@
 import{ useState } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 import boradValues, { color } from '../../store/index'
 import './index.css'
 
