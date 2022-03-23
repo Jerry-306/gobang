@@ -1,0 +1,27 @@
+.board {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 740px;
+    height: 740px;
+    margin: 10px auto;
+    border: 2px solid #181717;
+    background-color: #bb5807;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+.center-index {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: #181717;
+    border-radius: 50%;
+}
