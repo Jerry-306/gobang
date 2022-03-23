@@ -15,7 +15,10 @@ function App() {
       window.alert(`恭喜${res}获胜！`)
     }
   }, [matrix])
-
+  const handleReset = () => {
+    let newMatrix = new Array(12).fill(0).map(() => new Array(12).fill(0));
+    setMatrix(newMatrix);
+  }
   return (
     <div className='app'>
       <CheckerBoard />
@@ -23,12 +26,13 @@ function App() {
         <div 
           className='white' 
           onClick={() => setSelectedColor(1)}
-          style={{ border: `2px solid ${selectedColor === 1 ? '#181717': '#f5f6f5'}`}} 
+          style={{ border: `2px solid ${selectedColor % 2 === 1 ? '#181717': '#f5f6f5'}`}} 
         ></div>
+        <div className='reset' onClick={handleReset}>重置</div>
         <div 
           className='black'
           onClick={() => setSelectedColor(2)}
-          style={{ border: `2px solid ${selectedColor === 1 ? '#181717': '#f5f6f5'}`}}
+          style={{ border: `2px solid ${selectedColor % 2 === 1 ? '#181717': '#f5f6f5'}`}}
         ></div>
       </div>
     </div>

@@ -5,7 +5,7 @@ import './index.css'
 
 export default function Grid({row, colum}) {
   const [matrix, setMatrix] = useRecoilState(boradValues);
-  const curColor = useRecoilValue(color);
+  const [curColor, setCurColor] = useRecoilState(color);
   const [show, setShow] = useState();
   const handleClick = () => {
     setShow(true);
@@ -17,15 +17,19 @@ export default function Grid({row, colum}) {
       })
       arr.push(temp);
     })
-    arr[row][colum] = curColor;
+    arr[row][colum] = curColor % 2 === 1 ? 1 : 2;
     setMatrix(arr);
+    setCurColor(curColor + 1);
   }
 
   return (
     <div className='container' onClick={handleClick}>
       {
       show
-        ? <div className='cicle' style={{backgroundColor: matrix[row][colum] === 1 ? '#f5f6f5' : '#181717'}}></div>
+        ? <div className='cicle' 
+          style={
+            {opacity: matrix[row][colum] === 0 ? 0 : 1, backgroundColor: matrix[row][colum] === 1 ? '#f5f6f5' : '#181717'}
+          }></div>
         : null
       }
     </div>
