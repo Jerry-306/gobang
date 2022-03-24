@@ -16,8 +16,9 @@ function App() {
     }
   }, [matrix])
   const handleReset = () => {
-    let newMatrix = new Array(12).fill(0).map(() => new Array(12).fill(0));
+    let newMatrix = new Array(19).fill(0).map(() => new Array(19).fill(0));
     setMatrix(newMatrix);
+    setSelectedColor(2);
   }
   return (
     <div className='app'>

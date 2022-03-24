@@ -24,6 +24,12 @@ export default function Grid({row, colum}) {
 
   return (
     <div className='container' onClick={handleClick}>
+      {/* <div className='left-line'></div>
+      <div className='right-line'></div> */}
+      <div className='div1'></div>
+      <div className='div2'></div>
+      <div className='div3'></div>
+      <div className='div4'></div>
       {
       show
         ? <div className='cicle' 
