@@ -1,12 +1,12 @@
 import boradValues, { list, isReviewing } from '../../store'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useSetRecoilState, useRecoilValue } from 'recoil'
 import './index.css'
 
 const ListItem = (props) => {
     const {index, time, winner} = props;
-    const [ matrix, setMatrix ] = useRecoilState(boradValues);
+    const setMatrix = useSetRecoilState(boradValues);
     const listArray = useRecoilValue(list);
-    const [ isreviewing , setIsreviewing] = useRecoilState(isReviewing);
+    const setIsreviewing= useSetRecoilState(isReviewing);
     const handleReview = () => {
         setIsreviewing(true);
         // 防止出现对象浅复制

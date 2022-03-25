@@ -5,7 +5,7 @@ import CheckerBoard from './components/CheckerBoard'
 import FunctionButtons from './components/FunctionButtons'
 import List from './components/List'
 import Modal from './components/Modal'
-import alertWinner, { getTime } from './utils/isWin'
+import alertWinner, { getTime } from './utils/index'
 import './App.css';
 
 function App() {

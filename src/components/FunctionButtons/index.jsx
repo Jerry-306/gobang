@@ -1,12 +1,12 @@
-import { useRecoilState } from 'recoil'
+import { useSetRecoilState, useRecoilState } from 'recoil'
 import boradValues, { color, isReviewing, steps } from '../../store/index'
 import './index.css'
 
 const FunctionButtons = () => {
     const [selectedColor, setSelectedColor] = useRecoilState(color);
-    const [matrix, setMatrix]  = useRecoilState(boradValues);
-    const [isreviewing, setIsreviewing] = useRecoilState(isReviewing);
-    const [step, setStep] = useRecoilState(steps);
+    const setMatrix = useSetRecoilState(boradValues);
+    const setIsreviewing = useSetRecoilState(isReviewing);
+    const setStep = useSetRecoilState(steps);
     
     const handleReset = () => {
         let newMatrix = new Array(19).fill(0).map(() => new Array(19).fill(0));

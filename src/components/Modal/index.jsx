@@ -1,10 +1,10 @@
 import { showModal } from '../../store/index'
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import './index.css'
 
 export default function Modal(props) {
   const winner = props.winner;
-  const [ show, setShow ] = useRecoilState(showModal);
+  const setShow = useSetRecoilState(showModal);
   const handleClose = () => {
     setShow(false);
   }
