@@ -9,7 +9,31 @@ const ListItem = (props) => {
     const [ isreviewing , setIsreviewing] = useRecoilState(isReviewing);
     const handleReview = () => {
         setIsreviewing(true);
-        setMatrix(listArray[index - 1].step);
+        // 防止出现对象浅复制
+        let subMatrix = new Array(19).fill(0).map(() => new Array(19).fill(0));
+        let emptyMatrix = new Array(19).fill(0).map(() => new Array(19).fill(0));
+        // 如果当前棋盘不为空，棋盘先清零
+        setMatrix(emptyMatrix);
+        // 步骤
+        let steps = listArray[index - 1].step;
+        let n = steps.length;
+        // 每隔一秒复现一次棋子位置 —— 内存消耗会有点大
+        for (let i = 0; i < n; i++) {
+            const [row, colum, value] = steps[i];
+            setTimeout(() => {
+                subMatrix[row][colum] = value;
+                let arr = [];
+                subMatrix.forEach( array => {
+                    let temp = [];
+                    array.forEach( x => {
+                      temp.push(x);
+                    })
+                    arr.push(temp);
+                })
+                // 不能直接将subMatrix更新给matrix，因为这会使subMatrix变成只读矩阵
+                setMatrix(arr);
+            }, i*1000);
+        }
     }
     return (
         <div className='listitem-container'>

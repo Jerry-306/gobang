@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import boradValues, { list, isReviewing, showModal, winner } from './store/index'
+import boradValues, { list, isReviewing, showModal, winner, steps } from './store/index'
 import CheckerBoard from './components/CheckerBoard'
 import FunctionButtons from './components/FunctionButtons'
 import List from './components/List'
@@ -14,6 +14,7 @@ function App() {
   const isreviewing = useRecoilValue(isReviewing);
   const [ show, setShow ] = useRecoilState(showModal);
   const [ curWinner, setCurWinner ] = useRecoilState(winner);
+  const step = useRecoilValue(steps);
   // 五子棋获胜算法
   useEffect(()=>{
     // 如果不是进行复盘
@@ -25,11 +26,22 @@ function App() {
         let obj = {};
         obj.time = getTime();
         obj.winner = res;
-        obj.step = matrix;
+        obj.step = step;
         setListArray([...listArray, obj]);
       }
     }
   }, [matrix])
+
+  const [nowTime, setNowTime] = useState('');
+  useEffect(() => {
+    let timer = setInterval(() => {
+      setNowTime(getTime());
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    }
+  })
+
   return (
     <div className='app'>
       <CheckerBoard />
@@ -38,6 +50,7 @@ function App() {
       {
         show ? <Modal winner={curWinner} /> : null
       }
+      <div className='clock'>⏰ {nowTime}</div>
     </div>
   );
 }

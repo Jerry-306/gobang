@@ -10,8 +10,8 @@
     height: 300px;
     margin-top: -160px;
     margin-left: 420px;
-    border: 3px solid #181717;
-    background-color: rgb(160, 87, 3);
+    background-color: #bb5807;
+    box-shadow: 0px 0px 5px 3px #e2e2e2;
     border-radius: 10px;
     box-sizing: border-box;
 }
@@ -20,6 +20,10 @@
     height: 50px;
     background-color: #f5f6f5;
     border-radius: 50%;
+    transition: all 0.4s;
+}
+.white:hover, .reset:hover, .black:hover {
+    transform: scale(1.1);
 }
 .black {
     background-color: #181717;

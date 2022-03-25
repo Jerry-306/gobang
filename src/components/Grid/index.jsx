@@ -1,14 +1,13 @@
-import{ useState } from 'react';
 import { useRecoilState } from 'recoil'
-import boradValues, { color } from '../../store/index'
+import boradValues, { color, steps } from '../../store/index'
 import './index.css'
 
 export default function Grid({row, colum}) {
   const [matrix, setMatrix] = useRecoilState(boradValues);
   const [curColor, setCurColor] = useRecoilState(color);
-  const [show, setShow] = useState();
+  const [stepArray, setStepArray] = useRecoilState(steps);
+
   const handleClick = () => {
-    setShow(true);
     let arr = [];
     matrix.forEach( array => {
       let temp = [];
@@ -17,24 +16,30 @@ export default function Grid({row, colum}) {
       })
       arr.push(temp);
     })
-    arr[row][colum] = curColor;
+    // 悔棋
+    if (matrix[row][colum] !== 0) {
+      arr[row][colum] = 0;
+    } else {
+      // 显示棋子
+      arr[row][colum] = curColor;
+    }
+    // 对象深拷贝
     setMatrix(arr);
+    setStepArray([...stepArray, [row, colum, arr[row][colum]]]);
     setCurColor(curColor === 1 ? 2 : 1);
   }
 
   return (
     <div className='container' onClick={handleClick}>
-      {/* <div className='left-line'></div>
-      <div className='right-line'></div> */}
       <div className='div1'></div>
       <div className='div2'></div>
       <div className='div3'></div>
       <div className='div4'></div>
       {
-      show
+        matrix[row][colum] !== 0
         ? <div className='cicle' 
           style={
-            {opacity: matrix[row][colum] === 0 ? 0 : 1, backgroundColor: matrix[row][colum] === 1 ? '#f5f6f5' : '#181717'}
+            { backgroundColor: matrix[row][colum] === 1 ? '#f5f6f5' : '#181717'}
           }></div>
         : null
       }
