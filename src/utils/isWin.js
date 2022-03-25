@@ -55,8 +55,8 @@ function isWin (matrix, row, colum, val) {
 function alertWinner (matrix) {
     let winner = '';
     /*算法核心代码 */
-    for (let i = 0; i < 12; i++) {
-      for (let j = 0; j < 12; j++) {
+    for (let i = 0; i < 19; i++) {
+      for (let j = 0; j < 19; j++) {
         let val = matrix[i][j];
         if (val !== 0) {
           if (isWin(matrix, i, j, val)) {
@@ -67,6 +67,17 @@ function alertWinner (matrix) {
       }
     }
     return winner;
+}
+
+export function getTime () {
+    let time = new Date();
+    let hour = time.getHours();
+    let minute = time.getMinutes();
+    let second = time.getSeconds();
+    hour = hour < 10 ? '0' + hour : hour;
+    minute = minute < 10 ? '0' + minute : minute;
+    second = second < 10 ? '0' + second : second;
+    return `${hour}:${minute}:${second}`
 }
 
 export default alertWinner;

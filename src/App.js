@@ -1,41 +1,31 @@
 import { useEffect } from 'react'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import boradValues, { list } from './store/index'
 import CheckerBoard from './components/CheckerBoard'
-import { useRecoilState } from 'recoil'
-import boradValues, { color } from './store/index'
-import alertWinner from './isWin'
+import FunctionButtons from './components/FunctionButtons'
+import List from './components/List'
+import alertWinner, { getTime } from './utils/isWin'
 import './App.css';
 
 function App() {
-  const [selectedColor, setSelectedColor] = useRecoilState(color);
-  const [matrix, setMatrix]  = useRecoilState(boradValues);
+  const matrix  = useRecoilValue(boradValues);
+  const [ listArray, setListArray] = useRecoilState(list);
   // 五子棋获胜算法
   useEffect(()=>{
     let res = alertWinner(matrix);
     if (res !== '') {
-      window.alert(`恭喜${res}获胜！`)
+      window.alert(`恭喜${res}获胜！`);
+      let obj = {};
+      obj.time = getTime();
+      obj.winner = res;
+      setListArray([...listArray, obj]);
     }
   }, [matrix])
-  const handleReset = () => {
-    let newMatrix = new Array(19).fill(0).map(() => new Array(19).fill(0));
-    setMatrix(newMatrix);
-    setSelectedColor(2);
-  }
   return (
     <div className='app'>
       <CheckerBoard />
-      <div className='choose-color'>
-        <div 
-          className='white' 
-          onClick={() => setSelectedColor(1)}
-          style={{ border: `2px solid ${selectedColor === 1 ? '#181717': '#f5f6f5'}`}} 
-        ></div>
-        <div className='reset' onClick={handleReset}>重置</div>
-        <div 
-          className='black'
-          onClick={() => setSelectedColor(2)}
-          style={{ border: `2px solid ${selectedColor === 1 ? '#181717': '#f5f6f5'}`}}
-        ></div>
-      </div>
+      <FunctionButtons />
+      <List />
     </div>
   );
 }

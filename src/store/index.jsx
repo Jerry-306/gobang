@@ -11,4 +11,9 @@ export const color = atom({
     default: 2
 })
 
+export const list = atom({
+    key: 'list',
+    default: []
+})
+
 export default boradValues;

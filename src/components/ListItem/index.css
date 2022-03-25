@@ -1,0 +1,31 @@
+.listitem-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    margin: 10px;
+    background-color: #f5f6f5;
+    text-align: center;
+    line-height: 50px;
+    color: #353535;
+    font-size: 16px;
+    box-shadow: 0px 0px 2px 2px #e0dfdf;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+.listitem-index {
+    width: 15%;
+    height: 100%;
+}
+.listitem-time {
+    width: 50%;
+    height: 100%;
+    color: #4d00b3;
+}
+.listitem-winner {
+    width: 25%;
+    height: 100%;
+    color: #cc0000;
+}
