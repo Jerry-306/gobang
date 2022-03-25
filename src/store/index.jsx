@@ -21,4 +21,14 @@ export const isReviewing = atom({
     default: false
 })
 
+export const showModal = atom({
+    key: 'showModal',
+    default: false
+})
+
+export const winner = atom({
+    key: 'winner',
+    default: ''
+})
+
 export default boradValues;

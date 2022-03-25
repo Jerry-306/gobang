@@ -13,12 +13,14 @@ const List = () => {
                 <div className='listheader-winner'>赢家</div>
                 <div className='listheader-review' >复盘</div>
             </div>
-            {
-                listArray.map((item, index) => {
-                    const { time, winner } = item;
-                    return <ListItem key={time} index={index + 1} time={time} winner={winner} />
-                })
-            }
+            <div className='list-scrollContainer'>
+                {
+                    listArray.map((item, index) => {
+                        const { time, winner } = item;
+                        return <ListItem key={time} index={index + 1} time={time} winner={winner} />
+                    })
+                }
+            </div>
         </div>
     )
 }

@@ -49,3 +49,12 @@ p {
     height: 100%;
     color: #00705e;
 }
+.list-scrollContainer {
+    width: 100%;
+    margin-bottom: 5px;
+    max-height: 500px;
+    overflow: scroll;
+}
+.list-scrollContainer::-webkit-scrollbar {
+    display: none;
+}
