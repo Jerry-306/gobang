@@ -6,3 +6,6 @@
   /* background-color: #e77306; */
   border-radius: 10px;
 }
+div {
+  cursor: pointer;
+}

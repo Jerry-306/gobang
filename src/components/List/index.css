@@ -13,3 +13,39 @@ p {
     font-size: 22px;
     color: #8f0053;
 }
+.listheader-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    margin: 10px;
+    background-color: #ffffff;
+    text-align: center;
+    line-height: 50px;
+    color: #353535;
+    font-size: 16px;
+    box-shadow: 0px 0px 2px 2px #e0dfdf;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+.listheader-index {
+    width: 15%;
+    height: 100%;
+}
+.listheader-time {
+    width: 35%;
+    height: 100%;
+    color: #4d00b3;
+}
+.listheader-winner {
+    width: 20%;
+    height: 100%;
+    color: #cc0000;
+}
+.listheader-review {
+    width: 15%;
+    height: 100%;
+    color: #00705e;
+}

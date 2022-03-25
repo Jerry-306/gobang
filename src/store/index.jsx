@@ -16,4 +16,9 @@ export const list = atom({
     default: []
 })
 
+export const isReviewing = atom({
+    key: 'isReviewing',
+    default: false
+})
+
 export default boradValues;

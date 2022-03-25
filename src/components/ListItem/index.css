@@ -20,12 +20,16 @@
     height: 100%;
 }
 .listitem-time {
-    width: 50%;
+    width: 35%;
     height: 100%;
     color: #4d00b3;
 }
 .listitem-winner {
-    width: 25%;
+    width: 20%;
     height: 100%;
     color: #cc0000;
+}
+.listitem-review {
+    width: 15%;
+    height: 100%;
 }
