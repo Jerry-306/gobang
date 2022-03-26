@@ -8,25 +8,21 @@ export default function Grid({row, colum}) {
   const [stepArray, setStepArray] = useRecoilState(steps);
 
   const handleClick = () => {
-    let arr = [];
-    matrix.forEach( array => {
-      let temp = [];
-      array.forEach( x => {
-        temp.push(x);
+    if (matrix[row][colum] === 0) {
+      let arr = [];
+      matrix.forEach( array => {
+        let temp = [];
+        array.forEach( x => {
+          temp.push(x);
+        })
+        arr.push(temp);
       })
-      arr.push(temp);
-    })
-    // 悔棋
-    if (matrix[row][colum] !== 0) {
-      arr[row][colum] = 0;
-    } else {
-      // 显示棋子
       arr[row][colum] = curColor;
+      // 对象深拷贝
+      setMatrix(arr);
+      setStepArray([...stepArray, [row, colum, arr[row][colum]]]);
+      setCurColor(curColor === 1 ? 2 : 1);
     }
-    // 对象深拷贝
-    setMatrix(arr);
-    setStepArray([...stepArray, [row, colum, arr[row][colum]]]);
-    setCurColor(curColor === 1 ? 2 : 1);
   }
 
   return (
