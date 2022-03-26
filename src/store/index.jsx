@@ -41,4 +41,10 @@ export const steps = atom({
     default: []
 })
 
+// 用于处理悔棋的steps数组
+export const subSteps = atom({
+    key: 'subSteps',
+    default: []
+})
+
 export default boradValues;
