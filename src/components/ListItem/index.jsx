@@ -1,5 +1,6 @@
 import boradValues, { list, isReviewing } from '../../store'
 import { useSetRecoilState, useRecoilValue } from 'recoil'
+import { motion } from 'framer-motion'
 import './index.css'
 
 const ListItem = (props) => {
@@ -35,15 +36,26 @@ const ListItem = (props) => {
             }, i*1000);
         }
     }
+
+    const item = {
+        hidden: { opacity: 0 },
+        show: { opacity: 1 }
+    }
+
     return (
-        <div className='listitem-container'>
+        <motion.div 
+            variants={item}
+            initial="hidden"
+            animate="show"
+            className='listitem-container'
+        >
             <div className='listitem-index'>{index}</div>
             <div className='listitem-time'>{time}</div>
             <div className='listitem-winner'>{
                 winner === '白子'? '⚪' : '⚫'
             }</div>
             <div className='listitem-review' onClick={handleReview}>👁️‍🗨️</div>
-        </div>
+        </motion.div>
     )
 }
 

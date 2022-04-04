@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
+import { motion } from 'framer-motion'
 import boradValues, { list, isReviewing, showModal, winner, steps } from './store/index'
 import CheckerBoard from './components/CheckerBoard'
 import FunctionButtons from './components/FunctionButtons'
@@ -42,6 +43,18 @@ function App() {
     }
   })
 
+  const variants = {
+    hidden: { opacity: 0, x: '-300px' },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: 1,
+        duration: 1
+      }
+    },
+}
+
   return (
     <div className='app'>
       <CheckerBoard />
@@ -50,7 +63,14 @@ function App() {
       {
         show ? <Modal winner={curWinner} /> : null
       }
-      <div className='clock'>⏰ {nowTime}</div>
+      <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={variants}
+            className='clock'
+      >
+        ⏰ {nowTime}
+      </motion.div>
     </div>
   );
 }

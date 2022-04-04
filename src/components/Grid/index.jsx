@@ -1,4 +1,5 @@
 import { useRecoilState } from 'recoil'
+import { motion } from 'framer-motion'
 import boradValues, { color, steps, subSteps } from '../../store/index'
 import './index.css'
 
@@ -29,6 +30,11 @@ export default function Grid({row, colum}) {
     }
   }
 
+  const variants = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: { opacity: 1, scale: 1 },
+  }
+  
   return (
     <div className='container' onClick={handleClick}>
       <div className='div1'></div>
@@ -37,10 +43,14 @@ export default function Grid({row, colum}) {
       <div className='div4'></div>
       {
         matrix[row][colum] !== 0
-        ? <div className='cicle' 
-          style={
-            { backgroundColor: matrix[row][colum] === 1 ? '#f5f6f5' : '#181717'}
-          }></div>
+        ? <motion.div className='cicle' 
+            initial="hidden"
+            animate="visible"
+            variants={variants}
+            style={
+              { backgroundColor: matrix[row][colum] === 1 ? '#f5f6f5' : '#181717'}
+            }
+          ></motion.div>
         : null
       }
     </div>

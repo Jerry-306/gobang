@@ -1,4 +1,5 @@
 import { useSetRecoilState, useRecoilState } from 'recoil'
+import { motion } from 'framer-motion'
 import boradValues, { color, isReviewing, steps, subSteps, subStepsSteps } from '../../store/index'
 import './index.css'
 
@@ -40,21 +41,42 @@ const FunctionButtons = () => {
             setSelectedColor(value);
         }
     }
+    const whileHover = {scale: 1.2};
+    const whileTap = {scale: 0.8};
+    const variants = {
+        hidden: { opacity: 0, x: '300px' },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 1
+            }
+        },
+    }
     return (
-        <div className='btnsContainer'>
-            <div 
+        <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={variants}
+            className='btnsContainer'
+        >
+            <motion.div 
+                whileHover={whileHover}
+                whileTap={whileTap}
                 className='white' 
                 onClick={() => setSelectedColor(1)}
                 style={{ border: `2px solid ${selectedColor === 1 ? '#181717': '#f5f6f5'}`}} 
-            ></div>
-            <div className='goback' onClick={handleGoback}>悔棋</div>
-            <div className='reset' onClick={handleReset}>重置</div>
-            <div 
+            ></motion.div>
+            <motion.div whileHover={whileHover} whileTap={whileTap} className='goback' onClick={handleGoback}>悔棋</motion.div>
+            <motion.div whileHover={whileHover} whileTap={whileTap} className='reset' onClick={handleReset}>重置</motion.div>
+            <motion.div 
+                whileHover={whileHover} 
+                whileTap={whileTap}
                 className='black'
                 onClick={() => setSelectedColor(2)}
                 style={{ border: `2px solid ${selectedColor === 1 ? '#181717': '#f5f6f5'}`}}
-            ></div>
-      </div>
+            ></motion.div>
+      </motion.div>
     )
 }
 

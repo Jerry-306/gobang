@@ -1,11 +1,28 @@
 import ListItem from '../ListItem'
 import { list } from '../../store/index'
 import { useRecoilValue } from 'recoil'
+import { motion } from 'framer-motion'
 import './index.css'
 const List = () => {
     const listArray = useRecoilValue(list);
+    const variants = {
+        hidden: { opacity: 0, x: '-300px', y: '-50%', },
+        visible: {
+            opacity: 1,
+            x: 0,
+            // y: '-50%',
+            transition: {
+                duration: 1
+            }
+        },
+    }
     return (
-        <div className='list-container'>
+        <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={variants}
+            className='list-container'
+        >
             <p>历史记录</p>
             <div className='listheader-container'>
                 <div className='listheader-index'>序号</div>
@@ -21,7 +38,7 @@ const List = () => {
                     })
                 }
             </div>
-        </div>
+        </motion.div>
     )
 }
 
