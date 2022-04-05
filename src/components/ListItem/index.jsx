@@ -38,8 +38,20 @@ const ListItem = (props) => {
     }
 
     const item = {
-        hidden: { opacity: 0 },
-        show: { opacity: 1 }
+        hidden: { x: -300 },
+        show: { 
+            x: 0,
+            transition: {
+                type: "spring",   // 弹簧
+                duration: 1, 
+                bounce: 0.4,      // 弹性
+                damping: 9        // 振荡
+            }
+        }
+    }
+    const hover= {
+        scale: 1.05,
+        backgroundColor: '#fff'
     }
 
     return (
@@ -47,6 +59,7 @@ const ListItem = (props) => {
             variants={item}
             initial="hidden"
             animate="show"
+            whileHover={hover}
             className='listitem-container'
         >
             <div className='listitem-index'>{index}</div>
