@@ -10,7 +10,6 @@ const List = () => {
         visible: {
             opacity: 1,
             x: 0,
-            // y: '-50%',
             transition: {
                 duration: 1
             }
@@ -32,10 +31,12 @@ const List = () => {
             </div>
             <div className='list-scrollContainer'>
                 {
-                    listArray.map((item, index) => {
+                    listArray.length !== 0 
+                    ? listArray.map((item, index) => {
                         const { time, winner } = item;
                         return <ListItem key={time} index={index + 1} time={time} winner={winner} />
                     })
+                    : <div className='no-history'>暂无历史记录</div>
                 }
             </div>
         </motion.div>

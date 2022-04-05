@@ -29,7 +29,11 @@ export default function CheckerBoard() {
                 ))
             )
         }
-        <div className='center-index'></div>
+        <div className='center'></div>
+        <div className='left-top'></div>
+        <div className='right-top'></div>
+        <div className='left-bottom'></div>
+        <div className='right-bottom'></div>
         </motion.div>
     )
 }

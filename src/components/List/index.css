@@ -57,3 +57,21 @@ p {
 .list-scrollContainer::-webkit-scrollbar {
     display: none;
 }
+.no-history {
+    position: relative;
+    height: 50px;
+    margin: 10px;
+    background-color: #f5f6f5;
+    text-align: center;
+    line-height: 50px;
+    color: #353535;
+    font-size: 16px;
+    box-shadow: 0px 0px 2px 2px #e0dfdf;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.4s;
+}
+.no-history:hover {
+    background-color: #fff;
+    transform: scale(1.05);
+}
