@@ -21,11 +21,15 @@
     background-color: #eeeeee;
     border-radius: 10px;
 }
+.modal_xiaoxin {
+    height: 36px;
+    margin-top: 10px;
+}
 .modal-title {
     color: brown;
     font-size: 28px;
     font-weight: bold;
-    margin-top: 40px;
+    margin-top: 0px;
 }
 .modal-winner {
     display: block;
