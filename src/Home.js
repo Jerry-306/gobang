@@ -71,7 +71,8 @@ function Home() {
           variants={variants}
           className='clock'
       >
-        ⏰ {nowTime}
+        <img className='xiaoxin' alt='xiaoxin' src='xiaoxin.gif' />
+        {nowTime}
       </motion.div>
     </div>
   );
