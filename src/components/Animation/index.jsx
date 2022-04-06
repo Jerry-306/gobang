@@ -20,6 +20,9 @@ export default function Animation() {
         <div className="side top" />
         <div className="side bottom" />
         <div className="side back" />
+        <div className="side a_xiaoxin">
+          <img className="a_xiaoxin_img" alt="xiaoxin" src="xiaoxin.gif"/>
+        </div>
       </div>
     </div>
   );

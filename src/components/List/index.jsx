@@ -22,7 +22,11 @@ const List = () => {
             variants={variants}
             className='list-container'
         >
-            <p>历史记录</p>
+            <p>
+                <img className='list_xiaoxin' alt='xiaoxin' src='xiaoxin.gif' />
+                <br />
+                历史记录
+            </p>
             <div className='listheader-container'>
                 <div className='listheader-index'>序号</div>
                 <div className='listheader-time'>时间</div>
