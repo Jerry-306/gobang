@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useAnimationFrame } from "framer-motion";
+import { useAnimationFrame, motion } from "framer-motion";
 import "./index.css";
 
 export default function Animation() {
@@ -11,8 +11,25 @@ export default function Animation() {
     ref.current.style.transform = `translateY(${y}px) rotateX(${rotate}deg) rotateY(${rotate}deg)`;
   });
 
+  const start = {
+    hidden: { y: -200 },
+    visible: {
+      y: 0,
+      transition: {
+        type: 'spring',
+        duration: 1, 
+        bounce: 0.4,
+        damping: 5   
+      }
+    }
+  }
+
   return (
-    <div className="a_container">
+    <motion.div 
+      initial="hidden"
+      animate="visible"
+      variants={start}
+      className="a_container">
       <div className="cube" ref={ref}>
         <div className="side front" />
         <div className="side left" />
@@ -24,6 +41,6 @@ export default function Animation() {
           <img className="a_xiaoxin_img" alt="xiaoxin" src="xiaoxin.gif"/>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

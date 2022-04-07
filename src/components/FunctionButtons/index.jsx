@@ -41,8 +41,8 @@ const FunctionButtons = () => {
             setSelectedColor(value);
         }
     }
-    const whileHover = {scale: 1.2};
-    const whileTap = {scale: 0.8};
+    const whileHover = {scale: 1.1};
+    const whileTap = {scale: 0.9};
     const variants = {
         hidden: { opacity: 0, x: '300px' },
         visible: {

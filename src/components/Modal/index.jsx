@@ -27,7 +27,7 @@ export default function Modal(props) {
       className='modal-container'
     >
         <div className='modal-content'>
-            <img className='modal_xiaoxin' alt='xiaoxin' src='xiaoxin.gif' />
+            <img className='modal_xiaoxin' alt='xiaoxin' src='xiaoxin_win.gif' />
             <p className='modal-title'>恭喜</p>
             <span className='modal-winner'>{winner === '白子' ? '⚪' : '⚫'}</span>
             <p className='modal-desc'>获得本局胜利</p>

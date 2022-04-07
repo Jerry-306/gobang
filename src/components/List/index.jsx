@@ -23,7 +23,7 @@ const List = () => {
             className='list-container'
         >
             <p>
-                <img className='list_xiaoxin' alt='xiaoxin' src='xiaoxin.gif' />
+                <img className='list_xiaoxin' alt='xiaoxin' src='xiaobai.gif' />
                 <br />
                 历史记录
             </p>
