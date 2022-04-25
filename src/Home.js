@@ -33,7 +33,7 @@ function Home() {
       }
     }
   }, [matrix])
-
+  // 
   const [nowTime, setNowTime] = useState('');
   useEffect(() => {
     let timer = setInterval(() => {
