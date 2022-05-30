@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import boradValues, { color, steps, subSteps } from '../../store/index'
 import './index.css'
 
-export default function Grid({row, colum}) {
+export default function Grid({row, colum, setTimer}) {
   const [matrix, setMatrix] = useRecoilState(boradValues);
   const [curColor, setCurColor] = useRecoilState(color);
   const [stepArray, setStepArray] = useRecoilState(steps);
@@ -11,6 +11,7 @@ export default function Grid({row, colum}) {
 
   const handleClick = () => {
     if (matrix[row][colum] === 0) {
+      setTimer();
       // 对象深拷贝
       let arr = [];
       matrix.forEach( array => {

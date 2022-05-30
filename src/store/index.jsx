@@ -47,4 +47,15 @@ export const subSteps = atom({
     default: []
 })
 
+// 倒计时
+export const countdown = atom({
+    key: 'countdown',
+    default: 15
+})
+
+export const timer = atom({
+    key: 'timer',
+    default: null
+})
+
 export default boradValues;
