@@ -61,6 +61,7 @@ p {
 .list-scrollContainer {
     width: 100%;
     margin-bottom: 5px;
+    padding: 10px 0px 15px 0px;
     max-height: 500px;
     overflow: scroll;
 }

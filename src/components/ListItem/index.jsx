@@ -61,7 +61,7 @@ const ListItem = (props) => {
   };
   const hover = {
     scale: 1.05,
-    boxShadow: "0px 0px 0px #dbdbdb inset, 0 0 50px #f9ca6c",
+    boxShadow: "0px 0px 0px #dbdbdb inset, 0 0 30px #f9ca6c",
   };
 
   return (

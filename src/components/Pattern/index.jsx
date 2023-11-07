@@ -20,7 +20,10 @@ export default function Pattern() {
     setCount(tag * 5);
   };
 
-  const whileHover = { scale: 1.1 };
+  const whileHover = {
+    scale: 1.1,
+    boxShadow: "0px 0px 0px #dbdbdb inset, 0 0 50px #f9ca6c",
+  };
   const whileTap = { scale: 0.9 };
   const variants = {
     hidden: { opacity: 0, x: "300px" },
