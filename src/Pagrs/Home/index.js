@@ -16,11 +16,10 @@ import boradValues, {
   difficultyLevel,
 } from "../../store/index";
 import CheckerBoard from "../../components/CheckerBoard";
-import FunctionButtons from "../../components/FunctionButtons";
 import TimeOutModal from "../../components/TimeOutModal";
 import List from "../../components/List";
 import Modal from "../../components/Modal";
-import Pattern from "../../components/Pattern";
+import FunctionMenu from "../../components/FunctionMenu";
 // import Animation from "./components/Animation";
 import alertWinner, { getTime } from "../../utils/index";
 import "./index.css";
@@ -116,9 +115,8 @@ function Home() {
   return (
     <div className="app">
       <CheckerBoard />
-      <FunctionButtons />
       <List />
-      <Pattern />
+      <FunctionMenu />
       {/* <Animation /> */}
       {show ? <Modal winner={curWinner} /> : null}
       <motion.div
