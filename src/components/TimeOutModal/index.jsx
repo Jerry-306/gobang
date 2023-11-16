@@ -1,4 +1,4 @@
-import { countdown, difficultyLevel } from "../../store/index";
+import { countdown, difficultyLevel, isWin11 } from "../../store/index";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { motion } from "framer-motion";
 import "./index.css";
@@ -29,6 +29,7 @@ export default function Modal(props) {
   const player = props.player;
   const setCount = useSetRecoilState(countdown);
   const level = useRecoilValue(difficultyLevel);
+  const isWindows11 = useRecoilValue(isWin11);
   const handleClose = () => {
     setCount(level * 5);
   };
@@ -47,7 +48,11 @@ export default function Modal(props) {
       >
         <img className="modal_xiaoxin" alt="xiaoxin" src="xiaoxin_win.gif" />
         <p className="modal-title">注意</p>
-        <span className="modal-winner">{player === 1 ? "🐻‍❄️" : "🐻"}</span>
+        {isWindows11 ? (
+          <span className="modal-winner">{player === 1 ? "🐻‍❄️" : "🐻"}</span>
+        ) : (
+          <span className="modal-winner">{player === 1 ? "⚪" : "⚫"}</span>
+        )}
         <p className="modal-desc">你思考时间太长了哦！</p>
         <span className="modal-close" onClick={handleClose}>
           ❌

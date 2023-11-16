@@ -95,4 +95,10 @@ export const gaming = atom({
   default: false,
 });
 
+//  是否是win11版本
+export const isWin11 = atom({
+  key: "isWin11",
+  default: false,
+});
+
 export default boradValues;

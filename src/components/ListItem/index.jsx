@@ -1,4 +1,9 @@
-import boradValues, { list, isReviewing, reviewEnd } from "../../store";
+import boradValues, {
+  list,
+  isReviewing,
+  reviewEnd,
+  isWin11,
+} from "../../store/index";
 import { useSetRecoilState, useRecoilValue, useRecoilState } from "recoil";
 import { motion } from "framer-motion";
 import "./index.css";
@@ -9,6 +14,7 @@ const ListItem = (props) => {
   const listArray = useRecoilValue(list);
   const setIsreviewing = useSetRecoilState(isReviewing);
   const [isReviewEnd, setisReviewEnd] = useRecoilState(reviewEnd);
+  const isWindows11 = useRecoilValue(isWin11);
 
   const handleReview = () => {
     if (isReviewEnd === false) {
@@ -74,7 +80,11 @@ const ListItem = (props) => {
     >
       <div className="listitem-index">{index}</div>
       <div className="listitem-time">{time}</div>
-      <div className="listitem-winner">{winner === "白子" ? "🐻‍❄️" : "🐻"}</div>
+      {isWindows11 ? (
+        <div className="listitem-winner">{winner === "白子" ? "🐻‍❄️" : "🐻"}</div>
+      ) : (
+        <div className="listitem-winner">{winner === "白子" ? "⚪" : "⚫"}</div>
+      )}
       <div className="listitem-review" onClick={handleReview}>
         👁️‍🗨️
       </div>

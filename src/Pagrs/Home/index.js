@@ -14,6 +14,7 @@ import boradValues, {
   gameOver,
   gaming,
   difficultyLevel,
+  isWin11,
 } from "../../store/index";
 import CheckerBoard from "../../components/CheckerBoard";
 import TimeOutModal from "../../components/TimeOutModal";
@@ -38,6 +39,7 @@ function Home() {
   const setGameOver = useSetRecoilState(gameOver);
   const setGaming = useSetRecoilState(gaming);
   const level = useRecoilValue(difficultyLevel);
+  const setIsWin11 = useSetRecoilState(isWin11);
 
   // 五子棋获胜算法
   useEffect(() => {
@@ -88,6 +90,21 @@ function Home() {
       window.removeEventListener("beforeunload", setStorage);
     };
   });
+
+  useEffect(() => {
+    navigator.userAgentData
+      .getHighEntropyValues(["platformVersion"])
+      .then((ua) => {
+        if (navigator.userAgentData.platform === "Windows") {
+          const majorPlatformVersion = parseInt(
+            ua.platformVersion.split(".")[0]
+          );
+          if (majorPlatformVersion >= 13) {
+            setIsWin11(true);
+          }
+        }
+      });
+  }, []);
 
   const variants = {
     hidden: { opacity: 0, x: "-300px" },

@@ -7,6 +7,7 @@ import boradValues, {
   gamePattern,
   gaming,
   difficultyLevel,
+  isWin11,
 } from "../../store/index";
 import useHover from "../../Hooks/useHover";
 import { autoPlay } from "../../utils/index";
@@ -22,6 +23,7 @@ export default function Grid({ row, colum, setTimer }) {
   const [isGaming, setIsGaming] = useRecoilState(gaming);
   const pattern = useRecoilValue(gamePattern);
   const level = useRecoilValue(difficultyLevel);
+  const isWindows11 = useRecoilValue(isWin11);
 
   const handleClick = () => {
     if (matrix[row][colum] === 0) {
@@ -88,12 +90,18 @@ export default function Grid({ row, colum, setTimer }) {
 
   return (
     <div ref={hoverRef} className="container" onClick={handleClick}>
-      {matrix[row][colum] !== 0
+      {isWindows11
+        ? matrix[row][colum] !== 0
+          ? matrix[row][colum] === 1
+            ? "🐻‍❄️"
+            : "🐻"
+          : isHovering
+          ? "💢"
+          : ""
+        : matrix[row][colum] !== 0
         ? matrix[row][colum] === 1
-          ? "🐻‍❄️"
-          : "🐻"
-        : isHovering
-        ? "💢"
+          ? "⚪"
+          : "⚫"
         : ""}
     </div>
   );

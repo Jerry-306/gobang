@@ -1,5 +1,5 @@
-import { showModal } from "../../store/index";
-import { useSetRecoilState } from "recoil";
+import { showModal, isWin11 } from "../../store/index";
+import { useSetRecoilState, useRecoilValue } from "recoil";
 import { motion } from "framer-motion";
 import "./index.css";
 
@@ -28,6 +28,7 @@ export default function Modal(props) {
   };
   const winner = props.winner;
   const setShow = useSetRecoilState(showModal);
+  const isWindows11 = useRecoilValue(isWin11);
   const handleClose = () => {
     setShow(false);
   };
@@ -46,7 +47,15 @@ export default function Modal(props) {
       >
         <img className="modal_xiaoxin" alt="xiaoxin" src="xiaoxin_win.gif" />
         <p className="modal-title">恭喜</p>
-        <span className="modal-winner">{winner === "白子" ? "🐻‍❄️" : "🐻"}</span>
+        {isWindows11 ? (
+          <span className="modal-winner">
+            {winner === "白子" ? "🐻‍❄️" : "🐻"}
+          </span>
+        ) : (
+          <span className="modal-winner">
+            {winner === "白子" ? "⚪" : "⚫"}
+          </span>
+        )}
         <p className="modal-desc">获得本局胜利</p>
         <span className="modal-close" onClick={handleClose}>
           ❌
