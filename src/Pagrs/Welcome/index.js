@@ -7,21 +7,21 @@ export default function Welcome() {
     <div className="welcome-root">
       <h1>W E L C O M E</h1>
       <div id="container">
-        <div class="ghost">
-          <div class="body">
-            <div class="face">
-              <div class="eyes"> </div>
-              <div class="dimples"> </div>
-              <div class="mouth"> </div>
+        <div className="ghost">
+          <div className="body">
+            <div className="face">
+              <div className="eyes"> </div>
+              <div className="dimples"> </div>
+              <div className="mouth"> </div>
             </div>
-            <div class="bottom">
-              <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="wave"></div>
+            <div className="bottom">
+              <div className="circle"></div>
+              <div className="circle"></div>
+              <div className="circle"></div>
+              <div className="wave"></div>
             </div>
           </div>
-          <div class="shadow"></div>
+          <div className="shadow"></div>
         </div>
       </div>
       <Link to="./home" className="play-game">PLAY</Link>

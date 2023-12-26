@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { motion } from "framer-motion";
 import boradValues, {
   list,
   isReviewing,
@@ -21,7 +20,9 @@ import TimeOutModal from "../../components/TimeOutModal";
 import List from "../../components/List";
 import Modal from "../../components/Modal";
 import FunctionMenu from "../../components/FunctionMenu";
-// import Animation from "./components/Animation";
+import Clock from "../../components/Clock";
+import CountDown from "../../components/CountDown";
+// import Animation from "../../components/Animation";
 import alertWinner, { getTime } from "../../utils/index";
 import "./index.css";
 
@@ -70,16 +71,6 @@ function Home() {
       }
     }
   }, [matrix]);
-  //
-  const [nowTime, setNowTime] = useState("");
-  useEffect(() => {
-    let timer = setInterval(() => {
-      setNowTime(getTime());
-    }, 1000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
 
   const setStorage = () => {
     localStorage.setItem("historyList", JSON.stringify(listArray));
@@ -106,29 +97,6 @@ function Home() {
       });
   }, []);
 
-  const variants = {
-    hidden: { opacity: 0, x: "-300px" },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: 1,
-        duration: 1,
-      },
-    },
-  };
-  const countdownContainer = {
-    hidden: { opacity: 0, x: "300px" },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: 1,
-        duration: 1,
-      },
-    },
-  };
-
   return (
     <div className="app">
       <CheckerBoard />
@@ -136,23 +104,8 @@ function Home() {
       <FunctionMenu />
       {/* <Animation /> */}
       {show ? <Modal winner={curWinner} /> : null}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={variants}
-        className="clock"
-      >
-        <img className="xiaoxin" alt="xiaoxin" src="xiaoxin.gif" />
-        {nowTime}
-      </motion.div>
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={countdownContainer}
-        className="countdown"
-      >
-        ⏱️{count <= 0 ? "时间到" : count + " s"}
-      </motion.div>
+      <Clock />
+      <CountDown />
       {count <= 0 ? <TimeOutModal player={player} /> : null}
     </div>
   );
