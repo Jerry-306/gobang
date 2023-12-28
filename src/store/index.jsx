@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 // 棋盘数据
-const boradValues = atom({
-  key: "boradValues",
+const boardValues = atom({
+  key: "boardValues",
   default: new Array(19).fill(0).map(() => new Array(19).fill(0)),
 });
 
@@ -101,4 +101,4 @@ export const isWin11 = atom({
   default: false,
 });
 
-export default boradValues;
+export default boardValues;

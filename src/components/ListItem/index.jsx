@@ -1,4 +1,4 @@
-import boradValues, {
+import boardValues, {
   list,
   isReviewing,
   reviewEnd,
@@ -10,18 +10,18 @@ import "./index.css";
 
 const ListItem = (props) => {
   const { index, time, winner } = props;
-  const setMatrix = useSetRecoilState(boradValues);
+  const setMatrix = useSetRecoilState(boardValues);
   const listArray = useRecoilValue(list);
-  const setIsreviewing = useSetRecoilState(isReviewing);
-  const [isReviewEnd, setisReviewEnd] = useRecoilState(reviewEnd);
+  const setReviewing = useSetRecoilState(isReviewing);
+  const [isReviewEnd, setIsReviewEnd] = useRecoilState(reviewEnd);
   const isWindows11 = useRecoilValue(isWin11);
 
   const handleReview = () => {
     if (isReviewEnd === false) {
       return;
     }
-    setisReviewEnd(false);
-    setIsreviewing(true);
+    setIsReviewEnd(false);
+    setReviewing(true);
     // 防止出现对象浅复制
     let subMatrix = new Array(19).fill(0).map(() => new Array(19).fill(0));
     let emptyMatrix = new Array(19).fill(0).map(() => new Array(19).fill(0));
@@ -47,7 +47,7 @@ const ListItem = (props) => {
         setMatrix(arr);
         // 复盘结束
         if (i === n - 1) {
-          setisReviewEnd(true);
+          setIsReviewEnd(true);
         }
       }, i * 1000);
     }

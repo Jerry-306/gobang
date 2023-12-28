@@ -15,7 +15,7 @@ export default function Pattern() {
   const isGaming = useRecoilValue(gaming);
   const setCount = useSetRecoilState(countdown);
 
-  const changeDifficity = (tag) => {
+  const changeDifficulty = (tag) => {
     setLevel(tag);
     setCount(tag * 5);
   };
@@ -62,7 +62,7 @@ export default function Pattern() {
         whileHover={whileHover}
         whileTap={whileTap}
         className={["difficulty-level", level === 3 ? "active" : ""].join(" ")}
-        onClick={() => changeDifficity(3)}
+        onClick={() => changeDifficulty(3)}
       >
         简单
       </motion.div>
@@ -70,7 +70,7 @@ export default function Pattern() {
         whileHover={whileHover}
         whileTap={whileTap}
         className={["difficulty-level", level === 2 ? "active" : ""].join(" ")}
-        onClick={() => changeDifficity(2)}
+        onClick={() => changeDifficulty(2)}
       >
         中等
       </motion.div>
@@ -78,7 +78,7 @@ export default function Pattern() {
         whileHover={whileHover}
         whileTap={whileTap}
         className={["difficulty-level", level === 1 ? "active" : ""].join(" ")}
-        onClick={() => changeDifficity(1)}
+        onClick={() => changeDifficulty(1)}
       >
         困难
       </motion.div>

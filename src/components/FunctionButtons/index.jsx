@@ -1,6 +1,6 @@
 import { useSetRecoilState, useRecoilState, useRecoilValue } from "recoil";
 import { motion } from "framer-motion";
-import boradValues, {
+import boardValues, {
   color,
   isReviewing,
   steps,
@@ -16,7 +16,7 @@ import "./index.css";
 
 const FunctionButtons = () => {
   const [selectedColor, setSelectedColor] = useRecoilState(color);
-  const [matrix, setMatrix] = useRecoilState(boradValues);
+  const [matrix, setMatrix] = useRecoilState(boardValues);
   const setReviewing = useSetRecoilState(isReviewing);
   const [step, setStep] = useRecoilState(steps);
   const [subStep, setSubStep] = useRecoilState(subSteps);

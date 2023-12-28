@@ -1,5 +1,5 @@
 import { useRecoilState, useRecoilValue } from "recoil";
-import boradValues, {
+import boardValues, {
   color,
   steps,
   subSteps,
@@ -15,7 +15,7 @@ import "./index.css";
 
 export default function Grid({ row, colum, setTimer }) {
   const [hoverRef, isHovering] = useHover();
-  const [matrix, setMatrix] = useRecoilState(boradValues);
+  const [matrix, setMatrix] = useRecoilState(boardValues);
   const [curColor, setCurColor] = useRecoilState(color);
   const [stepArray, setStepArray] = useRecoilState(steps);
   const [subStepArray, setSubStepArray] = useRecoilState(subSteps);

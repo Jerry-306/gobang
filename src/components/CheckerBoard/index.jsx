@@ -1,4 +1,4 @@
-import boradValues, { countdown, timer, isReviewing, gameOver, difficultyLevel } from "../../store/index";
+import boardValues, { countdown, timer, isReviewing, gameOver, difficultyLevel } from "../../store/index";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { motion } from "framer-motion";
 import Grid from "../Grid";
@@ -34,7 +34,7 @@ export default function CheckerBoard() {
     }, 1000);
     setTime(id);
   }
-  const matrix = useRecoilValue(boradValues);
+  const matrix = useRecoilValue(boardValues);
   return (
     <motion.div
       initial="hidden"
